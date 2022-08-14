@@ -1,10 +1,10 @@
 import "./App.css";
-import TextEditor from "./components/TextEditor";
+import MyCkeditor from "./components/MyCkeditor";
 
 function App() {
   return (
     <div className="App">
-      <TextEditor />
+      <MyCkeditor />
     </div>
   );
 }

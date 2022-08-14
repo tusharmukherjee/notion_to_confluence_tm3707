@@ -1,0 +1,393 @@
+// LIST databses
+// https://api.notion.com/v1/databases
+
+// POST (GET) id for table pages
+// https://api.notion.com/v1/databases/2343e7054254467bb136e2190debbd72/query
+
+// GET meta data of a page retrieve from database
+// https://api.notion.com/v1/pages/eb454f87-54ab-46d6-89af-f731f6ddb800
+
+List Databse --------------------------------------------------------------------
+{
+"object": "list",
+"results": [
+{
+"object": "database",
+"id": "54a10493-5141-41f1-a3d9-b1400697b6b2",
+"cover": null,
+"icon": null,
+"created_time": "2022-08-12T13:25:00.000Z",
+"created_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_time": "2022-08-12T14:11:00.000Z",
+"title": [
+{
+"type": "text",
+"text": {
+"content": "RingoverDB",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "RingoverDB",
+"href": null
+}
+],
+"description": [],
+"is_inline": false,
+"properties": {
+"Tags": {
+"id": "qPTZ",
+"name": "Tags",
+"type": "multi_select",
+"multi_select": {
+"options": [
+{
+"id": "29bb1c8c-41e2-4b40-8bae-0420b87384b4",
+"name": "unit2",
+"color": "gray"
+}
+]
+}
+},
+"Sub": {
+"id": "y%7CYz",
+"name": "Sub",
+"type": "rich_text",
+"rich_text": {}
+},
+"Page": {
+"id": "title",
+"name": "Page",
+"type": "title",
+"title": {}
+}
+},
+"parent": {
+"type": "workspace",
+"workspace": true
+},
+"url": "https://www.notion.so/54a10493514141f1a3d9b1400697b6b2",
+"archived": false
+},
+{
+"object": "database",
+"id": "2343e705-4254-467b-b136-e2190debbd72",
+"cover": null,
+"icon": null,
+"created_time": "2022-08-13T23:06:00.000Z",
+"created_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_time": "2022-08-13T23:19:00.000Z",
+"title": [
+{
+"type": "text",
+"text": {
+"content": "Database 2",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "Database 2",
+"href": null
+}
+],
+"description": [],
+"is_inline": false,
+"properties": {
+"Tags": {
+"id": "OO%40A",
+"name": "Tags",
+"type": "multi_select",
+"multi_select": {
+"options": [
+{
+"id": "a75c4241-5b35-439d-8ffb-349e40ac100c",
+"name": "#authentication",
+"color": "purple"
+},
+{
+"id": "adfd79aa-f79a-4230-8b13-1780d3265998",
+"name": "#GraphQL",
+"color": "brown"
+},
+{
+"id": "88778e33-2425-47cd-b8b5-2e60af080da0",
+"name": "#login",
+"color": "yellow"
+},
+{
+"id": "fc02b48c-ddb0-4971-ba18-dc13bccb915c",
+"name": "#scrap",
+"color": "default"
+}
+]
+}
+},
+"Blogs": {
+"id": "p%3Dy%7D",
+"name": "Blogs",
+"type": "rich_text",
+"rich_text": {}
+},
+"Topic": {
+"id": "title",
+"name": "Topic",
+"type": "title",
+"title": {}
+}
+},
+"parent": {
+"type": "workspace",
+"workspace": true
+},
+"url": "https://www.notion.so/2343e7054254467bb136e2190debbd72",
+"archived": false
+}
+],
+"next_cursor": null,
+"has_more": false
+}
+
+Database Pages ID ----------------------------------------------------------------
+{
+"object": "list",
+"results": [
+{
+"object": "page",
+"id": "5fd66ed8-2648-47d1-b470-48e8c09ce981",
+"created_time": "2022-08-13T23:06:00.000Z",
+"last_edited_time": "2022-08-13T23:06:00.000Z",
+"created_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"cover": null,
+"icon": null,
+"parent": {
+"type": "database_id",
+"database_id": "2343e705-4254-467b-b136-e2190debbd72"
+},
+"archived": false,
+"properties": {
+"Tags": {
+"id": "OO%40A"
+},
+"Blogs": {
+"id": "p%3Dy%7D"
+},
+"Topic": {
+"id": "title"
+}
+},
+"url": "https://www.notion.so/5fd66ed8264847d1b47048e8c09ce981"
+},
+{
+"object": "page",
+"id": "914371f8-2e59-4f13-9af7-e4b3e2eef281",
+"created_time": "2022-08-13T23:06:00.000Z",
+"last_edited_time": "2022-08-13T23:27:00.000Z",
+"created_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"cover": null,
+"icon": null,
+"parent": {
+"type": "database_id",
+"database_id": "2343e705-4254-467b-b136-e2190debbd72"
+},
+"archived": false,
+"properties": {
+"Tags": {
+"id": "OO%40A"
+},
+"Blogs": {
+"id": "p%3Dy%7D"
+},
+"Topic": {
+"id": "title"
+}
+},
+"url": "https://www.notion.so/ZomatoScrapper-914371f82e594f139af7e4b3e2eef281"
+},
+{
+"object": "page",
+"id": "eb454f87-54ab-46d6-89af-f731f6ddb800",
+"created_time": "2022-08-13T23:06:00.000Z",
+"last_edited_time": "2022-08-13T23:26:00.000Z",
+"created_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"cover": null,
+"icon": null,
+"parent": {
+"type": "database_id",
+"database_id": "2343e705-4254-467b-b136-e2190debbd72"
+},
+"archived": false,
+"properties": {
+"Tags": {
+"id": "OO%40A"
+},
+"Blogs": {
+"id": "p%3Dy%7D"
+},
+"Topic": {
+"id": "title"
+}
+},
+"url": "https://www.notion.so/Cookies-eb454f8754ab46d689aff731f6ddb800"
+}
+],
+"next_cursor": null,
+"has_more": false,
+"type": "page",
+"page": {}
+}
+
+Pages Meta data from a database --------------------------------------------------
+
+{
+"object": "page",
+"id": "eb454f87-54ab-46d6-89af-f731f6ddb800",
+"created_time": "2022-08-13T23:06:00.000Z",
+"last_edited_time": "2022-08-13T23:26:00.000Z",
+"created_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"last_edited_by": {
+"object": "user",
+"id": "eff41982-ca58-4a56-a617-122c1b1fa088"
+},
+"cover": null,
+"icon": null,
+"parent": {
+"type": "database_id",
+"database_id": "2343e705-4254-467b-b136-e2190debbd72"
+},
+"archived": false,
+"properties": {
+"Tags": {
+"id": "OO%40A",
+"type": "multi_select",
+"multi_select": [
+{
+"id": "a75c4241-5b35-439d-8ffb-349e40ac100c",
+"name": "#authentication",
+"color": "purple"
+},
+{
+"id": "88778e33-2425-47cd-b8b5-2e60af080da0",
+"name": "#login",
+"color": "yellow"
+}
+]
+},
+"Blogs": {
+"id": "p%3Dy%7D",
+"type": "rich_text",
+"rich_text": [
+{
+"type": "text",
+"text": {
+"content": "How to send cookies to clients?",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "How to send cookies to clients?",
+"href": null
+}
+]
+},
+"Topic": {
+"id": "title",
+"type": "title",
+"title": [
+{
+"type": "text",
+"text": {
+"content": "Cookies",
+"link": null
+},
+"annotations": {
+"bold": false,
+"italic": false,
+"strikethrough": false,
+"underline": false,
+"code": false,
+"color": "default"
+},
+"plain_text": "Cookies",
+"href": null
+}
+]
+}
+},
+"url": "https://www.notion.so/Cookies-eb454f8754ab46d689aff731f6ddb800"
+}
+
+[x] Create a Nodejs Application and Reactjs Application. Please use SCSS.
+The application must read Notion Documents and create the corresponding confluence pages. Paragraphs, Lists and Tables in Notion must be converted. Note: Some features are not convertible between notion and confluence.
+
+2. The Interface must be a react SPA. The user must be allowed to specify the notion document that they want to convert. (They can input the id of the notion document).
+   The react application must load the notion document in a Rich Text Editor. (You can choose any editor of your choice).
+
+3. The user must be allowed to make basic changes to the document in the editor. Before converting it to a confluence document.
+
+4. (BONUS) Create a dropdown of available notion documents in the database with metadata that can allow the user to choose which one they want to convert.
+
+5. (BONUS) Make the application two way, i.e, allow users to perform the same functionality from confluence to notion.
+
+6. (BONUS) Attractive UI.
+
+[x] The user must be allowed to specify the notion document that they want to convert. (They can input the id of the notion document).
+
+[x] The react application must load the notion document in a Rich Text Editor.
+
+[x] The user must be allowed to make basic changes to the document in the editor.
