@@ -44,7 +44,7 @@ $success-color: #24A0ED;
                 justify-content: space-between;
                 width: 100%;
                 button{
-                    padding: 4px 2px;
+                    padding: 2px 4px;
                     width: 4rem;
                     border-radius: 4px;
                     cursor: pointer;
@@ -63,4 +63,10 @@ $success-color: #24A0ED;
             }
         }
     }
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
 }

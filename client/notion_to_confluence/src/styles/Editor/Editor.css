@@ -1,8 +1,48 @@
 .editorbody {
   width: 85%;
-  height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   position: absolute;
   left: 15%;
   top: 4rem;
-  padding: 2rem 5rem;
+  padding: 2rem 5rem 10rem 5rem;
+}
+.editorbody .edit-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3rem 0;
+}
+.editorbody .edit-head h2 {
+  font-size: 2rem;
+  font-weight: 100;
+}
+.editorbody .edit-head button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 0rem;
+  background-color: #24A0ED;
+  color: white;
+  cursor: pointer;
+}
+.editorbody .edit-head button:hover {
+  background-color: #2289c9;
+}
+
+.ck-content {
+  padding: 2rem 3rem !important;
+  line-height: 1.8rem !important;
+}
+.ck-content h1, .ck-content h2, .ck-content ol, .ck-content ul {
+  margin: 0 0 2rem 0 !important;
+}
+.ck-content h3, .ck-content p {
+  margin: 0 0 1rem 0 !important;
+}
+
+.ck-editor__top {
+  position: relative !important;
+  z-index: 0 !important;
 }/*# sourceMappingURL=Editor.css.map */

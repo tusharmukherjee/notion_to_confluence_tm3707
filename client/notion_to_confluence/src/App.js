@@ -25,8 +25,8 @@ function App() {
             </>
           }
         >
-          <Route path="/page" element={<PageInfo />} />
-          <Route path="/edit" element={<MyCkeditor />} />
+          <Route path="/page/:dbid" element={<PageInfo />} />
+          <Route path="/edit/:editid" element={<MyCkeditor />} />
         </Route>
       </Routes>
     </Router>

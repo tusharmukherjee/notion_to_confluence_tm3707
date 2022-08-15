@@ -48,7 +48,7 @@
   width: 100%;
 }
 .main-page .container .box .button button {
-  padding: 4px 2px;
+  padding: 2px 4px;
   width: 4rem;
   border-radius: 4px;
   cursor: pointer;
@@ -62,4 +62,9 @@
   border: 0rem;
   background-color: #24A0ED;
   color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }/*# sourceMappingURL=PageInfo.css.map */

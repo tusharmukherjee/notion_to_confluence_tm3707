@@ -1,8 +1,47 @@
+$success-color: #24A0ED;
 .editorbody{
     width: 85%;
-    height: min(100vh);
+    height: fit-content;
     position: absolute;
     left: 15%;
     top: 4rem;
-    padding: 2rem 5rem;
+    padding: 2rem 5rem 10rem 5rem;
+    .edit-head{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 3rem 0;
+        h2{
+            font-size: 2rem;
+            font-weight: 100;
+        }
+        button{
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 0rem;
+            background-color: $success-color;
+            color: white;
+            cursor: pointer;
+            &:hover{
+                background-color: #2289c9;
+            }
+        }
+    }
+}
+
+.ck-content{
+    padding: 2rem 3rem !important;
+    line-height: 1.8rem !important;
+    h1,h2,ol,ul{
+        margin: 0 0 2rem 0 !important;
+    }
+    h3,p{
+        margin: 0 0 1rem 0 !important;
+    }
+}
+
+.ck-editor__top{
+    position: relative !important;
+    z-index: 0 !important;
 }
