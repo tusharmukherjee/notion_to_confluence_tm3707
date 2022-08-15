@@ -1,0 +1,26 @@
+$dark: #2B2B2B;
+$text-white: rgb(236, 236, 236);
+$hover-dark: #474747;
+.sidebody{
+    background-color: $dark;
+    position: fixed;
+    top: 4rem;
+    left: 0px;
+    bottom: 0px;
+    width: 15%;
+    color: $text-white;
+    padding: 3rem 2rem;
+    .db-container{
+        .headDB{
+           margin-bottom: 1rem; 
+        }
+        .databases{
+            margin-bottom: 0.8rem;
+            padding: 0.8rem 0.6rem;
+            cursor: pointer;
+            &:hover{
+                background-color: $hover-dark;
+            }
+        }
+    }
+}

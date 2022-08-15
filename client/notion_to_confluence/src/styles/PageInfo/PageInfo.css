@@ -1,0 +1,65 @@
+.main-page {
+  display: flex;
+  padding: 5rem;
+  width: 85%;
+  position: absolute;
+  left: 15%;
+  top: 2rem;
+}
+.main-page .container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.main-page .container .box {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+  border: 1px solid;
+  border-radius: 8px;
+  height: 12rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
+}
+.main-page .container .box:hover {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.main-page .container .box .text-content {
+  display: flex;
+  flex-direction: row;
+}
+.main-page .container .box .text-content span {
+  font-size: 2rem;
+}
+.main-page .container .box .text-content .text {
+  width: 12rem;
+  margin-right: 0.5rem;
+}
+.main-page .container .box .text-content .text h2 {
+  margin-bottom: 2rem;
+}
+.main-page .container .box .button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main-page .container .box .button button {
+  padding: 4px 2px;
+  width: 4rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.main-page .container .box .button .edit {
+  background-color: white;
+  color: #24A0ED;
+  border: 2px solid #24A0ED;
+}
+.main-page .container .box .button .convert {
+  border: 0rem;
+  background-color: #24A0ED;
+  color: white;
+}/*# sourceMappingURL=PageInfo.css.map */

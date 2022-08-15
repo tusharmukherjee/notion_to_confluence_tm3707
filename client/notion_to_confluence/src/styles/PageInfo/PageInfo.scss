@@ -1,0 +1,66 @@
+$success-color: #24A0ED;
+.main-page{
+    display: flex;
+    padding: 5rem;
+    width: 85%;
+    position: absolute;
+    left: 15%;
+    top: 2rem;
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .box{
+            display: flex;
+            flex-direction: column;
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+            justify-content: space-between;
+            
+            border: 1px solid;
+            &:hover{
+             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+            }
+            border-radius: 8px;
+            height: 12rem;
+            width: fit-content;
+            padding: 1rem;
+            .text-content{
+                display: flex;
+                flex-direction: row;
+                span{
+                    font-size: 2rem;
+                }
+                .text{
+                    width: 12rem;
+                    margin-right: 0.5rem;
+                    h2{
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+            .button{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                button{
+                    padding: 4px 2px;
+                    width: 4rem;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                .edit{
+                    background-color: white;
+                    color: $success-color;
+                    border: 2px solid $success-color;
+                    
+                }
+                .convert{
+                    border: 0rem;
+                    background-color: $success-color;
+                    color: white;
+                }
+            }
+        }
+    }
+}

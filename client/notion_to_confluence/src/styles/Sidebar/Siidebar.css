@@ -1,0 +1,21 @@
+.sidebody {
+  background-color: #2B2B2B;
+  position: fixed;
+  top: 4rem;
+  left: 0px;
+  bottom: 0px;
+  width: 15%;
+  color: rgb(236, 236, 236);
+  padding: 3rem 2rem;
+}
+.sidebody .db-container .headDB {
+  margin-bottom: 1rem;
+}
+.sidebody .db-container .databases {
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 0.6rem;
+  cursor: pointer;
+}
+.sidebody .db-container .databases:hover {
+  background-color: #474747;
+}/*# sourceMappingURL=Siidebar.css.map */
