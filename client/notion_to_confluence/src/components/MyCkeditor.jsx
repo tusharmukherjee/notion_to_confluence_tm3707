@@ -45,7 +45,7 @@ const MyCkeditor = () => {
             })
         })
             .then(res => {
-                if (res.status == 200) {
+                if (res.status === 200) {
                     console.log(res.status);
                     setIsCon("Coverted ✅")
                 }

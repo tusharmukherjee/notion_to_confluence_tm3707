@@ -11,6 +11,7 @@ import PageInfo from "./components/PageInfo";
 import NavBar from "./components/NavBar";
 import Sidebar from "./components/Sidebar";
 import Search from "./components/Search";
+import Fourofour from "./components/Fourofour";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/edit/:editid" element={<MyCkeditor />} />
           <Route path="/search/:pageID" element={<Search/>}/>
         </Route>
+        <Route path="*" element={<Fourofour/>}/>
       </Routes>
     </Router>
   );

@@ -41,7 +41,7 @@ const PageInfo = () => {
             })
         })
             .then(res => {
-                if (res.status == 200) {
+                if (res.status === 200) {
                     console.log(res.status);
                     setIsCon({
                         id: pageID,
@@ -78,7 +78,7 @@ const PageInfo = () => {
                                     <Link to={`/edit/${el.id}`}>
                                         <button className=" edit">Edit</button>
                                     </Link>
-                                    <button onClick={() => convertNow(el.id, el.title)} className=" convert">{(isCon?.id == el.id) ? isCon?.status : "Convert"}</button>
+                                    <button onClick={() => convertNow(el.id, el.title)} className=" convert">{(isCon?.id === el.id) ? isCon?.status : "Convert"}</button>
                                 </div>
                             </div>
                         )

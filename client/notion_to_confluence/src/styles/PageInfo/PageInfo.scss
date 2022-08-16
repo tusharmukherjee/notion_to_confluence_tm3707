@@ -1,61 +1,74 @@
 $success-color: #24A0ED;
-.main-page{
+
+.main-page {
     display: flex;
     padding: 5rem;
     width: 85%;
     position: absolute;
     left: 15%;
     top: 2rem;
-    .container{
+
+    .container {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        .box{
+
+        .box {
             display: flex;
             flex-direction: column;
             margin-right: 2rem;
             margin-bottom: 2rem;
             justify-content: space-between;
-            
+
             border: 1px solid;
-            &:hover{
-             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+
+            &:hover {
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
             }
+
             border-radius: 8px;
             height: 12rem;
             width: fit-content;
             padding: 1rem;
-            .text-content{
+
+            .text-content {
                 display: flex;
                 flex-direction: row;
-                span{
+
+                span {
                     font-size: 2rem;
                 }
-                .text{
+
+                .text {
                     width: 12rem;
                     margin-right: 0.5rem;
-                    h2{
+
+                    h2 {
                         margin-bottom: 2rem;
                     }
                 }
             }
-            .button{
+
+            .button {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
-                button{
-                    padding: 2px 4px;
-                    width: 4rem;
+
+                button {
+                    padding: 4px 8px;
+                    text-align: center;
                     border-radius: 4px;
                     cursor: pointer;
                 }
-                .edit{
+
+                .edit {
                     background-color: white;
                     color: $success-color;
                     border: 2px solid $success-color;
-                    
+
                 }
-                .convert{
+
+                .convert {
                     border: 0rem;
                     background-color: $success-color;
                     color: white;
@@ -66,7 +79,7 @@ $success-color: #24A0ED;
 }
 
 
-a{
+a {
     text-decoration: none;
     color: black;
 }

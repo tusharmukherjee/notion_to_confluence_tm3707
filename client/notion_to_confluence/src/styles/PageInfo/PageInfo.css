@@ -48,8 +48,8 @@
   width: 100%;
 }
 .main-page .container .box .button button {
-  padding: 2px 4px;
-  width: 4rem;
+  padding: 4px 8px;
+  text-align: center;
   border-radius: 4px;
   cursor: pointer;
 }
