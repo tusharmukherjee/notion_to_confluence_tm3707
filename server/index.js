@@ -80,43 +80,41 @@ app.post("/pagetoedit", async (req, res) => {
 
 // Convert Request --------------------------------------------------------
 
-app.post("/pagetoconvert", async (req, res) => {
-  const pageID = req.body.pageID;
+app.post("/direct-convert", async (req, res) => {
+  const pageID = req.body;
 
-  const title = await fetch(`https://api.notion.com/v1/pages/${pageID}`).then(
-    (res) => res.json()
-  );
-
-  const mdblocks = await n2m.pageToMarkdown(pageID);
+  const mdblocks = await n2m.pageToMarkdown(pageID.pageID);
   const mdString = n2m.toMarkdownString(mdblocks);
   const html = converter.makeHtml(mdString);
-  const titleObj = title.properties.length - 1;
+  // console.log(html)
+  // res.send({html:html});
 
   const bodyData = {
-    title: `${titleObj.title[0].plain_text}`,
+    title: `${pageID.title}`,
     type: "page",
-    space: "tushars_space",
+    space: {
+      key: "TUSHARSSPA"
+    },
     body: {
       storage: {
         value: `${html}`,
-        representation: "wiki",
-      },
-    },
-  };
+        representation: "storage"
+      }
+    }
+}
+  console.log(bodyData);
 
   await fetch("https://tusharmukherjee.atlassian.net/wiki/rest/api/content", {
     method: "POST",
     headers: {
-      Authorization: "Bearer q5gjYaw8onArGEAqly0r",
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      'Authorization': 'Basic dHVzaGFyMTIxNG1ydEBnbWFpbC5jb206WEtwazVvZTJ0dmp4QWxxZ09OS3BGRjg0',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: bodyData,
+    body: JSON.stringify(bodyData),
   }).then((response) => {
     console.log(`Response: ${response.status} ${response.statusText}`);
     res.send(response);
-    console.log(response);
-    return response.text();
   });
 });
 
@@ -124,29 +122,29 @@ app.post("/edit-to-conv", async (req, res) => {
   const datatoC = req.body;
   console.log(datatoC.conHTML);
 
-  const bodyData = `{
-    'title': '${datatoC.head}',
-    'type': "page",
-    'space': {
-      'key': "TUSHARSSPA"
+  const bodyData = {
+    title: `${datatoC.head}`,
+    type: "page",
+    space: {
+      key: "TUSHARSSPA"
     },
-    'body': {
-      'storage': {
-        'value': '${datatoC.conHTML}',
-        'representation': "wiki",
-      },
-    },
-  }`;
+    body: {
+      storage: {
+        value: `${datatoC.conHTML}`,
+        representation: "storage"
+      }
+    }
+}
   console.log(bodyData);
 
   await fetch("https://tusharmukherjee.atlassian.net/wiki/rest/api/content", {
     method: "POST",
     headers: {
-      'Authorization': 'Bearer q5gjYaw8onArGEAqly0r',
+      'Authorization': 'Basic dHVzaGFyMTIxNG1ydEBnbWFpbC5jb206WEtwazVvZTJ0dmp4QWxxZ09OS3BGRjg0',
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: bodyData,
+    body: JSON.stringify(bodyData),
   }).then((response) => {
     console.log(`Response: ${response.status} ${response.statusText}`);
     res.send(response);
