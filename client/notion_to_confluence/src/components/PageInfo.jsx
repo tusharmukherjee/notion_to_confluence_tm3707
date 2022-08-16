@@ -6,8 +6,6 @@ import "../styles/PageInfo/PageInfo.css"
 
 const PageInfo = () => {
     const { dbid } = useParams();
-    console.log(dbid);
-    // const dbidObj = 
 
     const [pagedata, setPagedata] = useState();
     const [isCon, setIsCon] = useState();
@@ -28,7 +26,7 @@ const PageInfo = () => {
 
     }, [dbid]);
 
-    console.log(pagedata);
+    // console.log(pagedata);
 
     async function convertNow(pageID, title) {
         await fetch("http://localhost:3001/direct-convert", {
@@ -42,8 +40,21 @@ const PageInfo = () => {
                 title: title
             })
         })
-            .then(res => res.json())
-            .then(data => setIsCon(data));
+            .then(res => {
+                if (res.status == 200) {
+                    console.log(res.status);
+                    setIsCon({
+                        id: pageID,
+                        status: "Coverted ✅"
+                    })
+                }
+                else {
+                    setIsCon({
+                        id: pageID,
+                        status: "❌ similar"
+                    })
+                }
+            })
     }
 
     return (
@@ -67,26 +78,12 @@ const PageInfo = () => {
                                     <Link to={`/edit/${el.id}`}>
                                         <button className=" edit">Edit</button>
                                     </Link>
-                                    <button onClick={() => convertNow(el.id, el.title)} className=" convert">Convert</button>
+                                    <button onClick={() => convertNow(el.id, el.title)} className=" convert">{(isCon?.id == el.id) ? isCon?.status : "Convert"}</button>
                                 </div>
                             </div>
                         )
                     })
                 }
-
-                {/* <div className=' box'>
-                    <div className=' text-content'>
-                        <div className=' text'>
-                            <h2>Cookies</h2>
-                            <p>How to send cookies to clients?</p>
-                        </div>
-                        <span>😍</span>
-                    </div>
-                    <div className=' button'>
-                        <button className=" edit">Edit</button>
-                        <button className=" convert">Convert</button>
-                    </div>
-            </div> */}
             </div>
         </div>
     )

@@ -29,20 +29,12 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get("/", async (req, res) => {
-//   const data = await notion.blocks.children.list({
-//     block_id: "adcf998109ac4aa1ab14ca7cf048b743",
-//   });
-//   //   await notion.pages.
-//   //   console.log(data);
-//   res.send(data);
-// });
 
 // [x] Edit Request ----------------------------------------------------------
 
 app.post("/pagetoedit", async (req, res) => {
   const pageID = req.body.pageID;
-  console.log(pageID);
+  // console.log(pageID);
 
   const title = await fetch(`https://api.notion.com/v1/pages/${pageID}`, {
     headers: {
@@ -71,14 +63,10 @@ app.post("/pagetoedit", async (req, res) => {
     html,
   };
 
-  fs.writeFile("test.md", html, (err) => {
-    console.log(err);
-  });
-
   res.send(editData);
 });
 
-// Convert Request --------------------------------------------------------
+//[x] Convert Request --------------------------------------------------------
 
 app.post("/direct-convert", async (req, res) => {
   const pageID = req.body;
@@ -102,7 +90,7 @@ app.post("/direct-convert", async (req, res) => {
       }
     }
 }
-  console.log(bodyData);
+  // console.log(bodyData);
 
   await fetch("https://tusharmukherjee.atlassian.net/wiki/rest/api/content", {
     method: "POST",
@@ -112,15 +100,19 @@ app.post("/direct-convert", async (req, res) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(bodyData),
-  }).then((response) => {
+  })
+  .then((response) => {
     console.log(`Response: ${response.status} ${response.statusText}`);
-    res.send(response);
+    res.sendStatus(response.status);
   });
 });
 
+
+// [x] Edited, now convert
+
 app.post("/edit-to-conv", async (req, res) => {
   const datatoC = req.body;
-  console.log(datatoC.conHTML);
+  // console.log(datatoC.conHTML);
 
   const bodyData = {
     title: `${datatoC.head}`,
@@ -135,7 +127,7 @@ app.post("/edit-to-conv", async (req, res) => {
       }
     }
 }
-  console.log(bodyData);
+  // console.log(bodyData);
 
   await fetch("https://tusharmukherjee.atlassian.net/wiki/rest/api/content", {
     method: "POST",
@@ -145,11 +137,14 @@ app.post("/edit-to-conv", async (req, res) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(bodyData),
-  }).then((response) => {
+  })
+  .then((response) => {
     console.log(`Response: ${response.status} ${response.statusText}`);
-    res.send(response);
+    res.sendStatus(response.status);
   });
 });
+
+
 
 // [x] Get All Database ---------------------------------------------------
 
@@ -173,6 +168,8 @@ app.get("/getdatabase", async (req, res) => {
 
   res.send(databasesArr);
 });
+
+
 
 // [x] GET page id from a particular database --------------------------------
 
@@ -232,6 +229,73 @@ app.post("/getpages", async (req, res) => {
 
   res.send({ pages_from_a_DB: page_Meta_Data });
 });
+
+
+// [x] SEARCH DOC -------------------------------------------------------------------
+
+app.post("/search", async (req,res)=>{
+
+  try{
+    const pageID = req.body.pageID;
+
+  const metaPageRes = await fetch(
+    `https://api.notion.com/v1/pages/${pageID}`,
+    {
+      headers: {
+        "Notion-Version": "2021-08-16",
+        Authorization: "Bearer " + auth,
+      },
+    }
+  ).then((res) => res.json());
+  
+  // console.log(metaPageRes,"mP");
+
+      
+
+    
+    if(metaPageRes.status == 400){
+      throw metaPageRes;
+    }
+    else{
+
+      const pagePropKeys = Object.keys(metaPageRes.properties);
+
+    const metaData = {
+      id: `${metaPageRes.id}`,
+      icon:
+        metaPageRes.icon !== null
+          ? `${metaPageRes.icon.emoji}`
+          : `${metaPageRes.icon}`,
+      url: `${metaPageRes.url}`,
+      title: metaPageRes.properties[pagePropKeys[pagePropKeys.length - 1]]
+        .title.length
+        ? `${
+            metaPageRes.properties[pagePropKeys[pagePropKeys.length - 1]]
+              .title[0].plain_text
+          }`
+        : "no title",
+      content: metaPageRes.properties[pagePropKeys[pagePropKeys.length - 2]]
+        .rich_text.length
+        ? `${
+            metaPageRes.properties[pagePropKeys[pagePropKeys.length - 2]]
+              .rich_text[0].plain_text
+          }`
+        : "no desc.",
+    };
+
+      // console.log(metaData,"search");
+      res.send({"metaData":metaData});
+    }
+  }
+  catch(err){
+    // console.log(err,"err");
+    res.sendStatus(err.status);
+    // res.send(err);
+  }
+
+  
+});
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

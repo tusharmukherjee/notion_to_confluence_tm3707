@@ -10,6 +10,7 @@ import MyCkeditor from "./components/MyCkeditor";
 import PageInfo from "./components/PageInfo";
 import NavBar from "./components/NavBar";
 import Sidebar from "./components/Sidebar";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         >
           <Route path="/page/:dbid" element={<PageInfo />} />
           <Route path="/edit/:editid" element={<MyCkeditor />} />
+          <Route path="/search/:pageID" element={<Search/>}/>
         </Route>
       </Routes>
     </Router>

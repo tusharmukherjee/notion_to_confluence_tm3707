@@ -1,7 +1,7 @@
 import React from 'react';
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor';
 import "../styles/Editor/Editor.css"
-// import {Editor as ClassicEditor} from 'ckeditor5-custom-build/build/ckeditor';
+
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -9,56 +9,58 @@ import { useState } from 'react';
 
 
 const MyCkeditor = () => {
-    const {editid} = useParams();
-    
-    const [editData,setEditData] = useState();
+    const { editid } = useParams();
+
+    const [editData, setEditData] = useState();
     const [conHTML, setConHTML] = useState();
-    const [isCon, setIsCon] = useState();
+    const [isCon, setIsCon] = useState("Covert");
 
 
-    useEffect(()=>{
-        fetch("http://localhost:3001/pagetoedit",{
-            method:"POST",
+    useEffect(() => {
+        fetch("http://localhost:3001/pagetoedit", {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "accept" : "application/json"
+                "accept": "application/json"
             },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 pageID: editid
             })
         })
-        .then(res=>res.json())
-        .then(data=>setEditData(data));
-    },[editid]);
-    console.log(editData);
+            .then(res => res.json())
+            .then(data => setEditData(data));
+    }, [editid]);
 
 
-    async function convertNow(){
-        await fetch("http://localhost:3001/edit-to-conv",{
-            method:"POST",
+    async function convertNow() {
+        await fetch("http://localhost:3001/edit-to-conv", {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                "accept" : "application/json"
+                "accept": "application/json"
             },
-            body:JSON.stringify({
-                head:editData.head,
-                conHTML:conHTML
+            body: JSON.stringify({
+                head: editData.head,
+                conHTML: conHTML
             })
         })
-        .then(res=>res.json())
-        .then(data => setIsCon(data));
-
-        console.log(isCon);
+            .then(res => {
+                if (res.status == 200) {
+                    console.log(res.status);
+                    setIsCon("Coverted ✅")
+                }
+                else {
+                    setIsCon("❌ similar")
+                }
+            })
     }
 
-
-    // redux to get title and desc.
     return (
         <div className=' editorbody'>
             <div className="App">
                 <div className=' edit-head'>
                     <h2>{editData?.head}</h2>
-                    <button onClick={()=>convertNow()}>Convert</button>
+                    <button onClick={() => convertNow()}>{isCon}</button>
                 </div>
                 <CKEditor
                     editor={ClassicEditor}
