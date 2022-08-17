@@ -36,30 +36,12 @@ app.post("/pagetoedit", async (req, res) => {
   const pageID = req.body.pageID;
   // console.log(pageID);
 
-  const title = await fetch(`https://api.notion.com/v1/pages/${pageID}`, {
-    headers: {
-      "Notion-Version": "2021-08-16",
-      Authorization: "Bearer " + auth,
-    },
-  }).then((res) => res.json());
-
-  const pagePropKeys = Object.keys(title.properties);
-
-  const head = title.properties[pagePropKeys[pagePropKeys.length - 1]].title
-    .length
-    ? `${
-        title.properties[pagePropKeys[pagePropKeys.length - 1]].title[0]
-          .plain_text
-      }`
-    : "no title";
-
   const mdblocks = await n2m.pageToMarkdown(pageID);
   const mdString = n2m.toMarkdownString(mdblocks);
 
   const html = converter.makeHtml(mdString);
 
   const editData = {
-    head,
     html,
   };
 
