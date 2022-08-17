@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Head } from '../Context';
 import "../styles/PageInfo/PageInfo.css";
 
 const Search = () => {
     const { pageID } = useParams();
+
+    const { setDocHead } = useContext(Head);
+
     const [searchRes, setSerachRes] = useState();
     const [isCon, setIsCon] = useState("Convert");
     const [isErr, setIsErr] = useState(false);
@@ -84,7 +88,7 @@ const Search = () => {
                                     <span>{(searchRes?.metaData?.icon === "null") ? '👾' : searchRes?.metaData?.icon}</span>
                                 </div>
                                 <div className=' button'>
-                                    <Link to={`/edit/${searchRes?.metaData?.id}`}>
+                                    <Link to={`/edit/${searchRes?.metaData?.id}`} onClick={setDocHead(searchRes?.metaData?.title)}>
                                         <button className=" edit">Edit</button>
                                     </Link>
                                     <button onClick={() => convertNow(searchRes?.metaData?.id, searchRes?.metaData?.title)} className=" convert">{isCon}</button>

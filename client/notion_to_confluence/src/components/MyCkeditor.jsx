@@ -6,10 +6,15 @@ import { CKEditor } from '@ckeditor/ckeditor5-react'
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { Head } from '../Context';
 
 
 const MyCkeditor = () => {
     const { editid } = useParams();
+    const { docHead } = useContext(Head);
+
+    // console.log(docHead);
 
     const [editData, setEditData] = useState();
     const [conHTML, setConHTML] = useState();
@@ -59,7 +64,7 @@ const MyCkeditor = () => {
         <div className=' editorbody'>
             <div className="App">
                 <div className=' edit-head'>
-                    <h2>{editData?.head}</h2>
+                    <h2>{docHead}</h2>
                     <button onClick={() => convertNow()}>{isCon}</button>
                 </div>
                 <CKEditor

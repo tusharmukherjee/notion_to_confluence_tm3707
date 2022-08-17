@@ -1,11 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
+import { Head } from '../Context';
 import "../styles/PageInfo/PageInfo.css"
 
 const PageInfo = () => {
     const { dbid } = useParams();
+
+    const { setDocHead } = useContext(Head);
 
     const [pagedata, setPagedata] = useState();
     const [isCon, setIsCon] = useState();
@@ -75,7 +79,7 @@ const PageInfo = () => {
                                     <span>{(el.icon === "null") ? '👾' : el.icon}</span>
                                 </div>
                                 <div className=' button'>
-                                    <Link to={`/edit/${el.id}`}>
+                                    <Link to={`/edit/${el.id}`} onClick={() => setDocHead(el.title)}>
                                         <button className=" edit">Edit</button>
                                     </Link>
                                     <button onClick={() => convertNow(el.id, el.title)} className=" convert">{(isCon?.id === el.id) ? isCon?.status : "Convert"}</button>
